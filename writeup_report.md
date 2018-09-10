@@ -1,4 +1,4 @@
-**Vehicle Detection Project**
+# Vehicle Detection Project
 
 The goals / steps of this project are the following:
 
@@ -11,11 +11,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./output_images/01-view_image.png
-[image2]: ./output_imagess/02-hog.png
-[image3]: ./output_imagess/03-predict.png
-[image4]: ./output_imagess/04-heatmap.png
-[image5]: ./output_imagess/05-heatmap.png
-[image6]: ./output_imagess/06-test_pipeline.png
+[image2]: ./output_images/02-hog.png
+[image3]: ./output_images/03-predict.png
+[image4]: ./output_images/04-heatmap.png
+[image5]: ./output_images/05-heatmap.png
+[image6]: ./output_images/06-test_pipeline.png
 [video1]: ./output_videos/project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -64,7 +64,8 @@ The following image is a result of this experimentation on a test image:
 ![alt text][image3]
 
 To optimize the performance, a heat map has been introduced here with a threshold, and then a HOG sub-sampling was implemented in `find_cars` function. The image below shows the results on the test images:  
-![alt text][image5]
+![alt text][image3]
+
 ---
 
 ### Video Implementation
