@@ -37,16 +37,16 @@ I then define a function to return HOG features and visualize HOG on example ima
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
-To choose the best HOG parameters (also spatial, histogram parameters, etc), I defined a class `FeatureParameters` to hold all the parameters. There are lots of combinations, I did not cover all, just several combinations manually and compare the model accuracy and fitting time. The final parameters I used are the following:   
-  self.cspace = 'HLS'
-  self.orient = 9
-  self.pix_per_cell = 8
-  self.cell_per_block = 2
-  self.hog_channel = 'ALL'
-  self.spatial_size = (16, 16)
-  self.hist_bins = 32
-  self.hist_range = (0, 256) 
+To choose the best HOG parameters (also spatial, histogram parameters, etc), I defined a class `FeatureParameters` to hold all the parameters. There are lots of combinations that I did not cover all, I just tried several combinations manually and compare the model accuracy and fitting time.  
+The final parameters I used are the following:   
+* self.cspace = 'HLS'
+* self.orient = 9
+* self.pix_per_cell = 8
+* self.cell_per_block = 2
+* self.hog_channel = 'ALL'
+* self.spatial_size = (16, 16)
+* self.hist_bins = 32
+* self.hist_range = (0, 256) 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
@@ -64,7 +64,7 @@ The following image is a result of this experimentation on a test image:
 ![alt text][image3]
 
 To optimize the performance, a heat map has been introduced here with a threshold, and then a HOG sub-sampling was implemented in `find_cars` function. The image below shows the results on the test images:  
-![alt text][image3]
+![alt text][image5]
 
 ---
 
@@ -76,7 +76,9 @@ Here's a [link to my video result](./output_videos/project_video.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected.
+
+
 I created a pipeline in `process_image` function to cover the whole image processing above, and then optimize it a little bit in `process_image_final` function to make the boxes more 'smooth' when display. 
 
 
@@ -86,7 +88,7 @@ I created a pipeline in `process_image` function to cover the whole image proces
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-There are several points which i would like to improved/try if time allows: 
+There are several points which I would like to Improve/Try if time allows: 
 1. When training the model, more combinations should be tried and choose the best one. 
 2. Combine the pipeline together with previous 'Advanced lane finding'
 3. Try other object detection approach like YOLO, integrate it into this project and compare with current solution.
